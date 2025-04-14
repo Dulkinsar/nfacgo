@@ -3,49 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dulat the Great's Web Page</title>
+    <title>Student Leaderboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #2a2a2a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 30px;
+            color: #eeeeee;
         }
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        section {
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
             padding: 20px;
         }
-        footer {
-            background-color: #007BFF;
-            color: white;
+
+        h1 {
+            color: #cc0000;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
+            font-size: 2.4em;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        table {
             width: 100%;
+            border-collapse: collapse;
+            background-color: #333333;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #444;
+        }
+
+        th {
+            background-color: #990000;
+            color: #fff;
+            padding: 16px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #555;
+        }
+
+        tr:nth-child(even) {
+            background-color: #3a3a3a;
+        }
+
+        tr:hover {
+            background-color: #444444;
+        }
+
+        .rank {
+            font-weight: 600;
+            color: #cc0000;
+        }
+
+        .score {
+            font-weight: 500;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Welcome to Dulat the Great's Web Page</h1>
-</header>
-
-<section>
-    <h2>About Me</h2>
-    <p>Hello! I am Dulat the Great, six foot one and a half, and a huge fan of LeBron James. I am working on various projects, and this webpage will serve as my digital space to showcase my work and ideas.</p>
-</section>
-
-<footer>
-    <p>&copy; 2025 Dulat the Great. All rights reserved.</p>
-</footer>
-
+    <div class="container">
+        <h1>Class Leaderboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Student Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rank">1</td>
+                    <td>Student Name 1</td>
+                    <td class="score">100</td>
+                </tr>
+                <tr>
+                    <td class="rank">2</td>
+                    <td>Student Name 2</td>
+                    <td class="score">98</td>
+                </tr>
+                <tr>
+                    <td class="rank">3</td>
+                    <td>Student Name 3</td>
+                    <td class="score">96</td>
+                </tr>
+                <tr>
+                    <td class="rank">4</td>
+                    <td>Student Name 4</td>
+                    <td class="score">94</td>
+                </tr>
+                <tr>
+                    <td class="rank">5</td>
+                    <td>Student Name 5</td>
+                    <td class="score">92</td>
+                </tr>
+                <tr>
+                    <td class="rank">6</td>
+                    <td>Student Name 6</td>
+                    <td class="score">90</td>
+                </tr>
+                <tr>
+                    <td class="rank">7</td>
+                    <td>Student Name 7</td>
+                    <td class="score">88</td>
+                </tr>
+                <tr>
+                    <td class="rank">8</td>
+                    <td>Student Name 8</td>
+                    <td class="score">86</td>
+                </tr>
+                <tr>
+                    <td class="rank">9</td>
+                    <td>Student Name 9</td>
+                    <td class="score">84</td>
+                </tr>
+                <tr>
+                    <td class="rank">10</td>
+                    <td>Student Name 10</td>
+                    <td class="score">82</td>
+                </tr>
+                <tr>
+                    <td class="rank">11</td>
+                    <td>Student Name 11</td>
+                    <td class="score">80</td>
+                </tr>
+                <tr>
+                    <td class="rank">12</td>
+                    <td>Student Name 12</td>
+                    <td class="score">78</td>
+                </tr>
+                <tr>
+                    <td class="rank">13</td>
+                    <td>Student Name 13</td>
+                    <td class="score">76</td>
+                </tr>
+                <tr>
+                    <td class="rank">14</td>
+                    <td>Student Name 14</td>
+                    <td class="score">74</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
