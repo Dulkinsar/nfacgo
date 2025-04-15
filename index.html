@@ -69,19 +69,48 @@
             background-color: #444444;
         }
 
-        .rank {
-            font-weight: 600;
-            color: #cc0000;
+        /* Column-specific colors */
+        td:nth-child(1) { /* Rank column */
+            background-color: #1a1a1a;
+            color: #ff6666;
+            font-weight: bold;
+        }
+        tr:nth-child(even) td:nth-child(1) {
+            background-color: #252525;
         }
 
-        .score {
-            font-weight: 500;
-            color: #fff;
+        td:nth-child(2) { /* Name column */
+            background-color: #2a1a2a;
+            color: #eeccff;
+        }
+        tr:nth-child(even) td:nth-child(2) {
+            background-color: #352535;
         }
 
-        .streak {
-            font-weight: 500;
-            color: #4CAF50;
+        td:nth-child(3) { /* Score column */
+            background-color: #1a2a1a;
+            color: #aaffaa;
+            font-weight: bold;
+        }
+        tr:nth-child(even) td:nth-child(3) {
+            background-color: #253525;
+        }
+
+        td:nth-child(4) { /* Team column */
+            background-color: #1a1a2a;
+            color: #aaaaff;
+        }
+        tr:nth-child(even) td:nth-child(4) {
+            background-color: #252535;
+        }
+
+        td:nth-child(5) { /* Streak column */
+            background-color: #2a2a1a;
+            color: #ffffaa;
+            font-weight: bold;
+        }
+        tr:nth-child(even) td:nth-child(5) {
+            background-color: #353525;
         }
 
         /* Team ranking table styles */
@@ -240,7 +269,7 @@
                 <tr>
                     <td class="rank">4</td>
                     <td>РФМШ</td>
-                    <td class="score team-average">11.15</td>
+                    <td class="score team-average">15.75</td>
                     <td>Kamilla, Yernur</td>
                 </tr>
             </tbody>
