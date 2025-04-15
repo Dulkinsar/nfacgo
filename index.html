@@ -28,6 +28,14 @@
             letter-spacing: 0.5px;
         }
 
+        h2 {
+            color: #eeeeee;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+            text-align: center;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -35,6 +43,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid #444;
+            margin-bottom: 30px;
         }
 
         th {
@@ -69,6 +78,28 @@
             font-weight: 500;
             color: #fff;
         }
+
+        /* Team ranking table styles */
+        .team-ranking th {
+            background-color: #1a1a6e;
+        }
+        
+        .team-ranking tr:nth-child(1) {
+            background-color: #006600; /* Gold */
+        }
+        
+        .team-ranking tr:nth-child(2) {
+            background-color: #004400; /* Silver */
+        }
+        
+        .team-ranking tr:nth-child(3) {
+            background-color: #002200; /* Bronze */
+        }
+        
+        .team-average {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
@@ -80,72 +111,120 @@
                     <th>Rank</th>
                     <th>Student Name</th>
                     <th>Score</th>
+                    <th>Team</th>
                 </tr>
             </thead>
             <tbody id="leaderboardBody">
-                <!-- Rows will be sorted automatically by JavaScript -->
                 <tr>
                     <td class="rank">1</td>
-                    <td>Shakhnazar </td>
-                    <td class="score">12.2</td>
-                </tr>
-                <tr>
-                    <td class="rank">2</td>
-                    <td>Laura</td>
-                    <td class="score">17.6</td>
-                </tr>
-                 <tr>
-                    <td class="rank">2</td>
-                    <td>Dalen</td>
-                    <td class="score">19.2</td>
-                </tr>
-                 <tr>
-                    <td class="rank">2</td>
                     <td>Rayimbek</td>
                     <td class="score">23.4</td>
-                </tr>
-                 <tr>
-                    <td class="rank">2</td>
-                    <td>Asyl</td>
-                    <td class="score">21.4</td>
-                </tr>
-                 <tr>
-                    <td class="rank">2</td>
-                    <td>Temirlan</td>
-                    <td class="score">15.2</td>
-                </tr>
-                 <tr>
-                    <td class="rank">2</td>
-                    <td>Yernur</td>
-                    <td class="score">8.6</td>
-                </tr>
-                 <tr>
-                    <td class="rank">2</td>
-                    <td>Nurtilek</td>
-                    <td class="score">11.6</td>
-                </tr>
-                 <tr>
-                    <td class="rank">2</td>
-                    <td>Kamila</td>
-                    <td class="score">13.7</td>
+                    <td>KTL</td>
                 </tr>
                 <tr>
                     <td class="rank">2</td>
                     <td>Sholpan</td>
                     <td class="score">21.8</td>
+                    <td>Private</td>
                 </tr>
                 <tr>
-                    <td class="rank">2</td>
-                    <td>Arystan</td></td>
-                    <td class="score">13</td>
+                    <td class="rank">3</td>
+                    <td>Asyl</td>
+                    <td class="score">21.4</td>
+                    <td>Private</td>
                 </tr>
                 <tr>
-                    <td class="rank">2</td>
-                    <td>Arnur</td></td>
+                    <td class="rank">4</td>
+                    <td>Dalen</td>
+                    <td class="score">19.2</td>
+                    <td>Private</td>
+                </tr>
+                <tr>
+                    <td class="rank">5</td>
+                    <td>Laura</td>
+                    <td class="score">17.6</td>
+                    <td>NIS</td>
+                </tr>
+                <tr>
+                    <td class="rank">6</td>
+                    <td>Temirlan</td>
+                    <td class="score">15.2</td>
+                    <td>NIS</td>
+                </tr>
+                <tr>
+                    <td class="rank">7</td>
+                    <td>Kamilla</td>
+                    <td class="score">13.7</td>
+                    <td>РФМШ</td>
+                </tr>
+                <tr>
+                    <td class="rank">8</td>
+                    <td>Arystan</td>
+                    <td class="score">13.0</td>
+                    <td>KTL</td>
+                </tr>
+                <tr>
+                    <td class="rank">9</td>
+                    <td>Shakhnazar</td>
+                    <td class="score">12.2</td>
+                    <td>KTL</td>
+                </tr>
+                <tr>
+                    <td class="rank">10</td>
+                    <td>Arnur</td>
                     <td class="score">11.7</td>
+                    <td>NIS</td>
                 </tr>
-                
-                <!-- Add all 14 rows here (reduced for brevity) -->
+                <tr>
+                    <td class="rank">11</td>
+                    <td>Nurtilek</td>
+                    <td class="score">11.6</td>
+                    <td>KTL</td>
+                </tr>
+                <tr>
+                    <td class="rank">12</td>
+                    <td>Yernur</td>
+                    <td class="score">8.6</td>
+                    <td>РФМШ</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Team Rankings</h2>
+        <table class="team-ranking">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Average Score</th>
+                    <th>Members</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rank">1</td>
+                    <td>Private School</td>
+                    <td class="score team-average">20.80</td>
+                    <td>Sholpan, Asyl, Dalen</td>
+                </tr>
+                <tr>
+                    <td class="rank">2</td>
+                    <td>KTL</td>
+                    <td class="score team-average">15.05</td>
+                    <td>Rayimbek, Shakhnazar, Arystan, Nurtilek</td>
+                </tr>
+                <tr>
+                    <td class="rank">3</td>
+                    <td>NIS</td>
+                    <td class="score team-average">14.83</td>
+                    <td>Laura, Temirlan, Arnur</td>
+                </tr>
+                <tr>
+                    <td class="rank">4</td>
+                    <td>РФМШ</td>
+                    <td class="score team-average">11.15</td>
+                    <td>Kamilla, Yernur</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -158,8 +237,8 @@
 
             // Sort rows by score in descending order
             rows.sort((a, b) => {
-                const scoreA = parseInt(a.querySelector('.score').textContent);
-                const scoreB = parseInt(b.querySelector('.score').textContent);
+                const scoreA = parseFloat(a.querySelector('.score').textContent);
+                const scoreB = parseFloat(b.querySelector('.score').textContent);
                 return scoreB - scoreA;
             });
 
