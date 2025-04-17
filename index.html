@@ -112,7 +112,7 @@
             border-bottom: none;
         }
 
-        /* Column-specific styling - ALL COLUMNS NOW HAVE DISTINCT COLORS */
+        /* Column-specific styling */
         td:nth-child(1) { /* Rank */
             background-color: rgba(227,28,61,0.08);
             color: var(--memphis-red);
@@ -147,13 +147,27 @@
             font-weight: 700;
         }
 
+        td:nth-child(6) { /* Win Chance */
+            background-color: rgba(0,113,188,0.15);
+            color: var(--memphis-blue);
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
         tr:hover td {
             background-color: rgba(0,113,188,0.05) !important;
         }
 
-        /* Team ranking table - IMPROVED CONSISTENCY */
+        /* Team ranking table */
         .team-ranking th {
             background: linear-gradient(135deg, var(--memphis-purple), #5A1B66);
+        }
+
+        .team-ranking td:nth-child(4) { /* Win Chance */
+            background-color: rgba(0,113,188,0.15);
+            color: var(--memphis-blue);
+            font-weight: 700;
+            font-size: 1.1em;
         }
 
         .team-ranking tr:nth-child(1) td {
@@ -218,92 +232,105 @@
                     <th>Score</th>
                     <th>Team</th>
                     <th>Streak</th>
+                    <th>Win Chance</th>
                 </tr>
             </thead>
             <tbody id="leaderboardBody">
                 <tr>
                     <td class="rank">1</td>
-                    <td>Rayimbek</td>
-                    <td class="score">23.4</td>
-                    <td>KTL</td>
-                    <td class="streak">3</td>
-                </tr>
-                <tr>
-                    <td class="rank">2</td>
-                    <td>Sholpan</td>
-                    <td class="score">21.8</td>
-                    <td>Private</td>
-                    <td class="streak">3</td>
-                </tr>
-                <tr>
-                    <td class="rank">3</td>
-                    <td>Asyl</td>
-                    <td class="score">21.4</td>
-                    <td>Private</td>
-                    <td class="streak">3</td>
-                </tr>
-                <tr>
-                    <td class="rank">4</td>
-                    <td>Dalen</td>
-                    <td class="score">19.2</td>
-                    <td>Private</td>
-                    <td class="streak">1</td>
-                </tr>
-                <tr>
-                    <td class="rank">5</td>
                     <td>Laura</td>
                     <td class="score">26.8</td>
                     <td>NIS</td>
                     <td class="streak">3</td>
+                    <td class="win-chance">28%</td>
                 </tr>
                 <tr>
-                    <td class="rank">6</td>
+                    <td class="rank">2</td>
                     <td>Temirlan</td>
                     <td class="score">23.7</td>
                     <td>NIS</td>
                     <td class="streak">3</td>
+                    <td class="win-chance">22%</td>
                 </tr>
                 <tr>
-                    <td class="rank">7</td>
+                    <td class="rank">3</td>
+                    <td>Rayimbek</td>
+                    <td class="score">23.4</td>
+                    <td>KTL</td>
+                    <td class="streak">3</td>
+                    <td class="win-chance">18%</td>
+                </tr>
+                <tr>
+                    <td class="rank">4</td>
                     <td>Kamila</td>
                     <td class="score">22.9</td>
                     <td>РФМШ</td>
                     <td class="streak">3</td>
+                    <td class="win-chance">12%</td>
                 </tr>
                 <tr>
-                    <td class="rank">8</td>
+                    <td class="rank">5</td>
                     <td>Arystan</td>
                     <td class="score">22.2</td>
                     <td>KTL</td>
                     <td class="streak">3</td>
+                    <td class="win-chance">8%</td>
                 </tr>
                 <tr>
-                    <td class="rank">9</td>
+                    <td class="rank">6</td>
                     <td>Shakhnazar</td>
                     <td class="score">22.2</td>
                     <td>KTL</td>
                     <td class="streak">3</td>
+                    <td class="win-chance">5%</td>
                 </tr>
                 <tr>
-                    <td class="rank">10</td>
-                    <td>Arnur</td>
+                    <td class="rank">7</td>
+                    <td>Sholpan</td>
+                    <td class="score">21.8</td>
+                    <td>Private</td>
+                    <td class="streak">3</td>
+                    <td class="win-chance">3%</td>
+                </tr>
+                <tr>
+                    <td class="rank">8</td>
+                    <td>Asyl</td>
+                    <td class="score">21.4</td>
+                    <td>Private</td>
+                    <td class="streak">3</td>
+                    <td class="win-chance">1%</td>
+                </tr>
+                <tr>
+                    <td class="rank">9</td>
+                    <td>Amur</td>
                     <td class="score">20.2</td>
                     <td>NIS</td>
                     <td class="streak">3</td>
+                    <td class="win-chance">0.5%</td>
                 </tr>
                 <tr>
-                    <td class="rank">11</td>
+                    <td class="rank">10</td>
                     <td>Nurtilek</td>
                     <td class="score">19.4</td>
                     <td>KTL</td>
                     <td class="streak">3</td>
+                    <td class="win-chance">0.3%</td>
+                </tr>
+                <tr>
+                    <td class="rank">11</td>
+                    <td>Dalen</td>
+                    <td class="score">19.2</td>
+                    <td>Private</td>
+                    <td class="streak">1</td>
+                    <td class="win-chance">0.1%</td>
                 </tr>
                 <tr>
                     <td class="rank">12</td>
-                    <td>Yernur</td>
+                    <td>Yemur</td>
                     <td class="score">15</td>
                     <td>РФМШ</td>
                     <td class="streak">1</td>
+                    <td class="win-chance">&lt;0.1%</td>
                 </tr>
             </tbody>
         </table>
@@ -316,70 +343,123 @@
                     <th>Team</th>
                     <th>Average Score</th>
                     <th>Members</th>
+                    <th>Win Chance</th>
                 </tr>
             </thead>
             <tbody id="teamRankingBody">
-                <!-- Team data will be inserted here by JavaScript -->
+                <tr>
+                    <td class="rank">1</td>
+                    <td>NIS</td>
+                    <td class="score team-average">23.50</td>
+                    <td>Laura, Temirlan, Amur</td>
+                    <td class="win-chance">48%</td>
+                </tr>
+                <tr>
+                    <td class="rank">2</td>
+                    <td>KTL</td>
+                    <td class="score team-average">21.80</td>
+                    <td>Rayimbek, Shakhnazar, Arystan, Nurtilek</td>
+                    <td class="win-chance">39%</td>
+                </tr>
+                <tr>
+                    <td class="rank">3</td>
+                    <td>Private School</td>
+                    <td class="score team-average">20.80</td>
+                    <td>Sholpan, Asyl, Dalen</td>
+                    <td class="win-chance">9%</td>
+                </tr>
+                <tr>
+                    <td class="rank">4</td>
+                    <td>РФМШ</td>
+                    <td class="score team-average">18.90</td>
+                    <td>Kamila, Yemur</td>
+                    <td class="win-chance">4%</td>
+                </tr>
             </tbody>
         </table>
     </div>
 
     <script>
-        // Team data with average scores
+        // Team data with average scores and win chances
         const teams = [
             {
-                name: "Private School",
-                average: 20.80,
-                members: "Sholpan, Asyl, Dalen"
+                name: "NIS",
+                average: 23.50,
+                members: "Laura, Temirlan, Amur",
+                winChance: "48%"
             },
             {
                 name: "KTL",
-                average: 21.8,
-                members: "Rayimbek, Shakhnazar, Arystan, Nurtilek"
+                average: 21.80,
+                members: "Rayimbek, Shakhnazar, Arystan, Nurtilek",
+                winChance: "39%"
             },
             {
-                name: "NIS",
-                average: 23.5,
-                members: "Laura, Temirlan, Arnur"
+                name: "Private School",
+                average: 20.80,
+                members: "Sholpan, Asyl, Dalen",
+                winChance: "9%"
             },
             {
                 name: "РФМШ",
-                average: 18.9,
-                members: "Kamilla, Yernur"
+                average: 18.90,
+                members: "Kamila, Yemur",
+                winChance: "4%"
             }
+        ];
+
+        // Student data with win chances
+        const students = [
+            { name: "Laura", score: 26.8, team: "NIS", streak: 3, winChance: "28%" },
+            { name: "Temirlan", score: 23.7, team: "NIS", streak: 3, winChance: "22%" },
+            { name: "Rayimbek", score: 23.4, team: "KTL", streak: 3, winChance: "18%" },
+            { name: "Kamila", score: 22.9, team: "РФМШ", streak: 3, winChance: "12%" },
+            { name: "Arystan", score: 22.2, team: "KTL", streak: 3, winChance: "8%" },
+            { name: "Shakhnazar", score: 22.2, team: "KTL", streak: 3, winChance: "5%" },
+            { name: "Sholpan", score: 21.8, team: "Private", streak: 3, winChance: "3%" },
+            { name: "Asyl", score: 21.4, team: "Private", streak: 3, winChance: "1%" },
+            { name: "Amur", score: 20.2, team: "NIS", streak: 3, winChance: "0.5%" },
+            { name: "Nurtilek", score: 19.4, team: "KTL", streak: 3, winChance: "0.3%" },
+            { name: "Dalen", score: 19.2, team: "Private", streak: 1, winChance: "0.1%" },
+            { name: "Yemur", score: 15, team: "РФМШ", streak: 1, winChance: "<0.1%" }
         ];
 
         function updateLeaderboard() {
             const tbody = document.getElementById('leaderboardBody');
-            const rows = Array.from(tbody.querySelectorAll('tr'));
-
-            // Sort students by score
-            rows.sort((a, b) => {
-                const scoreA = parseFloat(a.querySelector('.score').textContent);
-                const scoreB = parseFloat(b.querySelector('.score').textContent);
-                return scoreB - scoreA;
-            });
-
-            // Update student ranks
-            rows.forEach((row, index) => {
-                row.querySelector('.rank').textContent = index + 1;
+            tbody.innerHTML = '';
+            
+            // Sort students by score (descending)
+            const sortedStudents = [...students].sort((a, b) => b.score - a.score);
+            
+            // Update student leaderboard
+            sortedStudents.forEach((student, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="rank">${index + 1}</td>
+                    <td>${student.name}</td>
+                    <td class="score">${student.score}</td>
+                    <td>${student.team}</td>
+                    <td class="streak">${student.streak}</td>
+                    <td class="win-chance">${student.winChance}</td>
+                `;
                 tbody.appendChild(row);
             });
 
             // Sort teams by average score (descending)
-            teams.sort((a, b) => b.average - a.average);
+            const sortedTeams = [...teams].sort((a, b) => b.average - a.average);
             
             // Update team rankings
             const teamTbody = document.getElementById('teamRankingBody');
             teamTbody.innerHTML = '';
             
-            teams.forEach((team, index) => {
+            sortedTeams.forEach((team, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td class="rank">${index + 1}</td>
                     <td>${team.name}</td>
                     <td class="score team-average">${team.average.toFixed(2)}</td>
                     <td>${team.members}</td>
+                    <td class="win-chance">${team.winChance}</td>
                 `;
                 teamTbody.appendChild(row);
             });
