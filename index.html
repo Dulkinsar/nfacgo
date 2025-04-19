@@ -3,413 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go-CAR T | Next-Gen CAR T-Cell Therapy</title>
+    <title>Go-CAR T | Next-Gen CAR T-Cell Therapy for Solid Tumors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
-        
         :root {
             --primary: #654173;
             --secondary: #f8be1d;
-            --light: #f8f5fa;
-            --dark: #2a1a35;
-            --accent: #a67db8;
+            --light: #f9f5fa;
+            --dark: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
             font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
             color: var(--dark);
-            background-color: var(--light);
             line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Memphis-style elements */
-        .memphis-shape {
-            position: absolute;
-            background-color: var(--secondary);
-            opacity: 0.2;
-            z-index: -1;
-        }
-        
-        .shape-1 {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            top: 50px;
-            right: 100px;
-        }
-        
-        .shape-2 {
-            width: 80px;
-            height: 80px;
-            transform: rotate(45deg);
-            bottom: 200px;
-            left: 50px;
-        }
-        
-        .shape-3 {
-            width: 120px;
-            height: 120px;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            top: 400px;
-            right: 80px;
-        }
-        
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 60px 0 40px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(101,65,115,0.8) 0%, rgba(166,125,184,0.5) 100%);
-            z-index: 0;
-        }
-        
-        header .container {
-            position: relative;
-            z-index: 1;
+            background-color: var(--light);
         }
         
         h1, h2, h3, h4 {
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
             color: var(--primary);
+            margin-bottom: 1rem;
         }
         
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        /* Memphis style elements */
+        .memphis-box {
+            border: 3px solid var(--primary);
+            position: relative;
+            padding: 2rem;
+            margin: 2rem 0;
+            background-color: white;
+        }
+        
+        .memphis-box::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px solid var(--secondary);
+            z-index: -1;
+        }
+        
+        .memphis-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
         }
         
-        h2 {
-            font-size: 2.2rem;
-            margin: 50px 0 20px;
-            border-bottom: 3px solid var(--secondary);
-            padding-bottom: 10px;
-            display: inline-block;
+        .memphis-stripe {
+            height: 10px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--primary),
+                var(--primary) 10px,
+                var(--secondary) 10px,
+                var(--secondary) 20px
+            );
+            margin: 1.5rem 0;
         }
         
-        h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin: 30px 0 15px;
+        /* Header styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
         }
         
         .tagline {
             font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
             color: var(--secondary);
         }
         
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: var(--dark);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 20px 0;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        .btn:hover {
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
             background-color: var(--primary);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
         section {
-            padding: 60px 0;
-            position: relative;
+            padding: 3rem 0;
         }
         
-        .section-light {
-            background-color: white;
+        /* About section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
         
-        .section-dark {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .section-dark h2, .section-dark h3 {
-            color: white;
-            border-bottom-color: var(--secondary);
-        }
-        
-        ul {
+        .challenges-list {
             list-style-type: none;
-            padding-left: 0;
         }
         
-        ul li {
+        .challenges-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
             position: relative;
-            padding-left: 30px;
-            margin-bottom: 15px;
         }
         
-        ul li:before {
+        .challenges-list li::before {
             content: "•";
             color: var(--secondary);
-            font-size: 1.5rem;
+            font-size: 2rem;
             position: absolute;
-            left: 0;
-            top: -5px;
+            left: -0.5rem;
+            top: -0.7rem;
         }
         
-        .team-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 40px 0;
+        /* Technology section */
+        .tech-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-feature {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .tech-feature h3 {
+            color: var(--secondary);
+        }
+        
+        /* Team section */
+        .team-members {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
         
         .team-member {
-            flex: 1 1 300px;
             background-color: white;
+            padding: 2rem;
             border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .team-member h3 {
-            margin-top: 0;
             color: var(--primary);
+            margin-bottom: 0.5rem;
         }
         
         .team-member .position {
             color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-weight: bold;
+            margin-bottom: 1rem;
         }
         
+        /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: var(--primary);
             color: white;
-            padding: 40px 0;
+            padding: 3rem 0;
             text-align: center;
         }
         
-        .tech-visualization {
-            background-color: var(--light);
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 40px 0;
-            border: 2px dashed var(--accent);
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
         
-        .tech-visualization h3 {
-            margin-top: 0;
+        .footer-tagline {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .highlight {
-            background-color: rgba(248, 190, 29, 0.2);
-            padding: 2px 5px;
-            border-radius: 3px;
+        .contact-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: 2px solid var(--secondary);
         }
         
-        .italic {
-            font-style: italic;
-        }
-        
-        .contact-info {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .team-container {
-                flex-direction: column;
-            }
+        .contact-button:hover {
+            background-color: transparent;
+            color: var(--secondary);
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="memphis-shape shape-1"></div>
-        <div class="memphis-shape shape-3"></div>
         <div class="container">
-            <h1>Go-CAR T</h1>
-            <p class="tagline">Next-Gen CAR T-Cell Therapy for Solid Tumors</p>
-            <a href="#contact" class="btn">Join Our Mission</a>
+            <div class="logo">Go-CAR T</div>
+            <div class="tagline">Next-Gen CAR T-Cell Therapy for Solid Tumors</div>
+            <a href="#join" class="cta-button">Join Our Mission</a>
         </div>
     </header>
     
-    <section class="section-light">
-        <div class="memphis-shape shape-2"></div>
-        <div class="container">
-            <h2>About</h2>
-            <p class="italic">CAR T-cells have been shown to have impacted the market due to its target identification, strong binding and target destruction. Though this technique has shown to have results, there are still LOOPHOLES that need to be taken care of.</p>
-            
-            <p>Several critical challenges of current CAR T-Cell Therapy:</p>
-            
-            <ul>
-                <li><strong>On-Target, Off-Tumor Toxicity</strong><br>
-                CAR T-cells may attack healthy tissues expressing the same antigens as tumor cells, raising serious safety concerns.</li>
-                
-                <li><strong>Tumor Antigen Escape</strong><br>
-                Tumors can downregulate or mutate target antigens, allowing them to evade immune detection and rendering therapy ineffective over time.</li>
-                
-                <li><strong>High Cost and Complex Manufacturing</strong><br>
-                Personalized CAR T-cell production is labor-intensive, expensive, and difficult to scale – making accessibility a major barrier.</li>
-                
-                <li><strong>Loss of Therapeutic Efficacy</strong><br>
-                T-cell exhaustion and the suppressive tumor microenvironment often lead to reduced persistence and diminished clinical benefit.</li>
-            </ul>
-        </div>
-    </section>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#desci">DeSci</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     
-    <section class="section-dark">
-        <div class="container">
-            <h2>Our Technology</h2>
-            
-            <p>Our platform is built on two major innovations:</p>
-            
-            <ul>
-                <li><strong>AND-Gate Logic:</strong> Our engineered CAR T-cells require multiple tumor-specific markers to activate, ensuring selective targeting and reduced off-tumor toxicity.</li>
-                
-                <li><strong>Hypoxia Switch:</strong> Our cells are activated only in low-oxygen (hypoxic) environments, a hallmark of solid tumors. This ensures an additional layer of safety.</li>
-            </ul>
-            
-            <p>At GoCART, we believe the future of biomedical innovation lies not just in what we build — but <span class="italic">how we build it.</span></p>
-            
-            <p>That's why we've integrated our research and development with the Decentralized Science (<span class="highlight">DeSci</span>) ecosystem.</p>
-        </div>
-    </section>
-    
-    <section class="section-light">
-        <div class="container">
-            <h2>What is DeSci?</h2>
-            
-            <p>DeSci is a movement to democratize and decentralize scientific research using Web3 technologies. It replaces outdated, opaque, and often exclusionary funding models with transparent, community-driven alternatives. Through decentralized platforms, researchers can:</p>
-            
-            <ul>
-                <li>Raise funds through tokenized science and DAOs</li>
-                <li>Share data openly without institutional gatekeeping</li>
-                <li>Collaborate across borders with global contributors</li>
-                <li>Retain intellectual property and reward early supporters</li>
-            </ul>
-            
-            <h3>How GoCART Uses DeSci</h3>
-            
-            <ul>
-                <li><strong>Community-Governed Innovation</strong><br>
-                Our scientific direction is shaped not just by a closed boardroom — but by an open, passionate community of scientists, investors, and patient advocates. Through our partnership with platforms like Molecule and bio.xyz, we are pioneering a model where the public can contribute to and benefit from life-saving research.</li>
-                
-                <li><strong>Token-Based Funding</strong><br>
-                Instead of relying solely on grants or VC funding, we're using DeSci tools to tokenize parts of our research, making investment more accessible and aligned with long-term impact. Our future DAO will allow contributors to have voting power over project direction, trial design, and resource allocation.</li>
-                
-                <li><strong>Transparent Research</strong><br>
-                Every step of our pipeline — from in silico modeling to preclinical testing — is documented and accessible on-chain or through open-access platforms. This ensures accountability, accelerates reproducibility, and invites global collaboration.</li>
-            </ul>
-            
-            <h3>Why It Matters</h3>
-            
-            <p>Traditional biotech R&D is expensive, centralized, and often moves at a pace misaligned with the urgency of patients' needs. By embracing DeSci, GoCART is:</p>
-            
-            <ul>
-                <li><strong>Reducing barriers</strong> to entry for innovation</li>
-                <li><strong>Accelerating timelines</strong> by streamlining funding and collaboration</li>
-                <li><strong>Creating shared value</strong>, not just corporate profit</li>
-                <li><strong>Building trust</strong> through transparency and decentralization</li>
-            </ul>
-            
-            <h3>Join the Future of Biotech</h3>
-            
-            <p>GoCART isn't just another startup. It's a blueprint for how life-saving science can be built — openly, ethically, and together.</p>
-            
-            <p>🔍 Whether you're a scientist, DeSci DAO, or curious supporter — we invite you to join the movement.</p>
-        </div>
-    </section>
-    
-    <section>
-        <div class="container">
-            <h2>Technology</h2>
-            
-            <div class="tech-visualization">
-                <h3>Visualization of our technology</h3>
-                <p>[lol]</p>
+    <main class="container">
+        <section id="about">
+            <div class="memphis-box">
+                <div class="memphis-circle">1</div>
+                <h2>About</h2>
+                <p>CAR T-cells have been shown to have impacted the market due to its target identification, strong binding and target destruction. Though this technique has shown to have results, there are still LOOPHOLES that need to be taken care of.</p>
+                <p>Several critical challenges of current CAR T-Cell Therapy:</p>
+                <ul class="challenges-list">
+                    <li><strong>On-Target, Off-Tumor Toxicity</strong><br>CAR T-cells may attack healthy tissues expressing the same antigens as tumor cells, raising serious safety concerns.</li>
+                    <li><strong>Tumor Antigen Escape</strong><br>Tumors can downregulate or mutate target antigens, allowing them to evade immune detection and rendering therapy ineffective over time.</li>
+                    <li><strong>High Cost and Complex Manufacturing</strong><br>Personalized CAR T-cell production is labor-intensive, expensive, and difficult to scale – making accessibility a major barrier.</li>
+                    <li><strong>Loss of Therapeutic Efficacy</strong><br>T-cell exhaustion and the suppressive tumor microenvironment often lead to reduced persistence and diminished clinical benefit.</li>
+                </ul>
             </div>
-        </div>
-    </section>
-    
-    <section class="section-dark">
-        <div class="container">
-            <h2>Our Team</h2>
-            
-            <p>At GoCART, our strength lies in the synergy between scientific rigor and purpose-driven leadership. Our founding team brings together expertise in translational medicine, synthetic biology, and global health innovation — united by a shared mission to redefine cancer care through intelligent cell therapies.</p>
-            
-            <div class="team-container">
-                <div class="team-member">
-                    <h3>Henry Erdlei</h3>
-                    <p class="position">Chief Executive Officer (CEO)</p>
-                    <p>Henry leads GoCART's scientific vision and translational development strategy. He is currently conducting doctoral research in translational tumour immunology at the prestigious Max Delbrück Center for Molecular Medicine in Germany. His academic foundation in Human Medicine at Charité – Universitätsmedizin Berlin equips him with deep clinical insight and a strong grasp of patient-centered innovation. Henry is driven by the goal of bridging fundamental research and clinical application to make advanced immunotherapies accessible for solid tumor patients worldwide.</p>
+        </section>
+        
+        <div class="memphis-stripe"></div>
+        
+        <section id="technology">
+            <div class="memphis-box">
+                <div class="memphis-circle">2</div>
+                <h2>Our Technology</h2>
+                <p>Our platform is built on two major innovations:</p>
+                <div class="tech-features">
+                    <div class="tech-feature">
+                        <h3>AND-Gate Logic</h3>
+                        <p>Our engineered CAR T-cells require multiple tumor-specific markers to activate, ensuring selective targeting and reduced off-tumor toxicity.</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h3>Hypoxia Switch</h3>
+                        <p>Our cells are activated only in low-oxygen (hypoxic) environments, a hallmark of solid tumors. This ensures an additional layer of safety.</p>
+                    </div>
+                </div>
+                <p>At GoCART, we believe the future of biomedical innovation lies not just in what we build — but <em>how we build it</em>.</p>
+                <p>That's why we've integrated our research and development with the Decentralized Science (DeSci) ecosystem.</p>
+            </div>
+        </section>
+        
+        <div class="memphis-stripe"></div>
+        
+        <section id="desci">
+            <div class="memphis-box">
+                <div class="memphis-circle">3</div>
+                <h2>What is DeSci?</h2>
+                <p>DeSci is a movement to democratize and decentralize scientific research using Web3 technologies. It replaces outdated, opaque, and often exclusionary funding models with transparent, community-driven alternatives. Through decentralized platforms, researchers can:</p>
+                <ul class="challenges-list">
+                    <li>Raise funds through tokenized science and DAOs</li>
+                    <li>Share data openly without institutional gatekeeping</li>
+                    <li>Collaborate across borders with global contributors</li>
+                    <li>Retain intellectual property and reward early supporters</li>
+                </ul>
+                
+                <h3>How GoCART Uses DeSci</h3>
+                <div class="tech-features">
+                    <div class="tech-feature">
+                        <h3>Community-Governed Innovation</h3>
+                        <p>Our scientific direction is shaped not just by a closed boardroom — but by an open, passionate community of scientists, investors, and patient advocates. Through our partnership with platforms like Molecule and bio.xyz, we are pioneering a model where the public can contribute to and benefit from life-saving research.</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h3>Token-Based Funding</h3>
+                        <p>Instead of relying solely on grants or VC funding, we're using DeSci tools to tokenize parts of our research, making investment more accessible and aligned with long-term impact. Our future DAO will allow contributors to have voting power over project direction, trial design, and resource allocation.</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h3>Transparent Research</h3>
+                        <p>Every step of our pipeline — from in silico modeling to preclinical testing — is documented and accessible on-chain or through open-access platforms. This ensures accountability, accelerates reproducibility, and invites global collaboration.</p>
+                    </div>
                 </div>
                 
-                <div class="team-member">
-                    <h3>Araliym Myrzagaliyeva</h3>
-                    <p class="position">Chief Technology Officer (CTO)</p>
-                    <p>Arailym oversees the technological development and strategic direction of GoCART's synthetic biology platform. She brings interdisciplinary experience in product development, global health advocacy, and synthetic biology. Her past leadership roles include Product Director at NanoX and Human Practices Lead at the iGEM (Kazakhstan), where she spearheaded innovation in public engagement and translational bioengineering. As Founder of the Breast Cancer Awareness Foundation in Kazakhstan and a recognized WHO Immunization Advocate, Arailym is deeply committed to health equity and impact-driven biotechnology.</p>
-                </div>
+                <h3>Why It Matters</h3>
+                <p>Traditional biotech R&D is expensive, centralized, and often moves at a pace misaligned with the urgency of patients' needs. By embracing DeSci, GoCART is:</p>
+                <ul class="challenges-list">
+                    <li><strong>Reducing barriers</strong> to entry for innovation</li>
+                    <li><strong>Accelerating timelines</strong> by streamlining funding and collaboration</li>
+                    <li><strong>Creating shared value</strong>, not just corporate profit</li>
+                    <li><strong>Building trust</strong> through transparency and decentralization</li>
+                </ul>
+                
+                <h3>Join the Future of Biotech</h3>
+                <p>GoCART isn't just another startup. It's a blueprint for how life-saving science can be built — openly, ethically, and together.</p>
+                <p>🔍 Whether you're a scientist, DeSci DAO, or curious supporter — we invite you to join the movement.</p>
             </div>
-            
-            <p>Together, our team is shaping the future of decentralized cancer therapeutics — combining bench science, systems thinking, and community-driven innovation to bring smarter, safer therapies to patients.</p>
-        </div>
-    </section>
+        </section>
+        
+        <div class="memphis-stripe"></div>
+        
+        <section id="team">
+            <div class="memphis-box">
+                <div class="memphis-circle">4</div>
+                <h2>Our Team</h2>
+                <p>At GoCART, our strength lies in the synergy between scientific rigor and purpose-driven leadership. Our founding team brings together expertise in translational medicine, synthetic biology, and global health innovation — united by a shared mission to redefine cancer care through intelligent cell therapies.</p>
+                
+                <div class="team-members">
+                    <div class="team-member">
+                        <h3>Henry Erdlei</h3>
+                        <div class="position">Chief Executive Officer (CEO)</div>
+                        <p>Henry leads GoCART's scientific vision and translational development strategy. He is currently conducting doctoral research in translational tumour immunology at the prestigious Max Delbrück Center for Molecular Medicine in Germany. His academic foundation in Human Medicine at Charité – Universitätsmedizin Berlin equips him with deep clinical insight and a strong grasp of patient-centered innovation. Henry is driven by the goal of bridging fundamental research and clinical application to make advanced immunotherapies accessible for solid tumor patients worldwide.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Araliym Myrzagaliyeva</h3>
+                        <div class="position">Chief Technology Officer (CTO)</div>
+                        <p>Arailym oversees the technological development and strategic direction of GoCART's synthetic biology platform. She brings interdisciplinary experience in product development, global health advocacy, and synthetic biology. Her past leadership roles include Product Director at NanoX and Human Practices Lead at the iGEM (Kazakhstan), where she spearheaded innovation in public engagement and translational bioengineering. As Founder of the Breast Cancer Awareness Foundation in Kazakhstan and a recognized WHO Immunization Advocate, Arailym is deeply committed to health equity and impact-driven biotechnology.</p>
+                    </div>
+                </div>
+                
+                <p>Together, our team is shaping the future of decentralized cancer therapeutics — combining bench science, systems thinking, and community-driven innovation to bring smarter, safer therapies to patients.</p>
+            </div>
+        </section>
+    </main>
     
-    <section id="contact">
+    <footer id="contact">
         <div class="container">
-            <h2>Contacts</h2>
-            
-            <p>We're building more than a treatment — we're building a movement.</p>
-            
+            <div class="footer-logo">Go-CAR T</div>
+            <div class="footer-tagline">We're building more than a treatment — we're building a movement.</div>
             <p>Whether you're a scientist, investor, DeSci enthusiast, or someone passionate about the future of medicine, we welcome you to join our mission. Reach out for collaborations, partnerships, or to support our roadmap through decentralized funding.</p>
-            
-            <div class="contact-info">
-                <p>✔ Contact us today and become part of the future of cancer therapy.</p>
-                <a href="#" class="btn">Get in Touch</a>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Go-CAR T. All rights reserved.</p>
+            <a href="#" class="contact-button">Contact us today</a>
+            <p>✔ Become part of the future of cancer therapy.</p>
         </div>
     </footer>
 </body>
