@@ -237,6 +237,7 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
         }
         
         .team-member h3 {
@@ -248,6 +249,16 @@
             color: var(--secondary);
             font-weight: bold;
             margin-bottom: 1rem;
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+            margin: 0 auto 1rem;
+            display: block;
         }
         
         /* Footer */
@@ -317,6 +328,11 @@
 
             .tagline {
                 font-size: 1.2rem;
+            }
+
+            .team-photo {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
@@ -411,16 +427,19 @@
                 <h2>Our Team</h2>
                 <div class="team-members">
                     <div class="team-member">
+                        <img src="/pictures/henry.JPG" alt="Henry Erdlei" class="team-photo">
                         <h3>Henry Erdlei</h3>
                         <div class="position">Chief Executive Officer (CEO)</div>
                         <p>Henry conducted doctoral research in translational tumour immunology at the Max Delbrück Center for Molecular Medicine, following his medical training at Charité – Universitätsmedizin Berlin. His work focuses on bridging fundamental immunology discoveries with clinical applications for solid tumor therapies.</p>
                     </div>
                     <div class="team-member">
+                        <img src="/pictures/aray.JPG" alt="Araliym Myrzagaliyeva" class="team-photo">
                         <h3>Araliym Myrzagaliyeva</h3>
                         <div class="position">Chief Technology Officer (CTO)</div>
                         <p>Arailym oversees technological development with experience spanning synthetic biology and global health advocacy. As Founder of the Breast Cancer Awareness Foundation in Kazakhstan and former Product Director at NanoX, she brings unique perspective to therapeutic development.</p>
                     </div>
                     <div class="team-member">
+                        <img src="/pictures/chase.JPG" alt="Chase Blakeley" class="team-photo">
                         <h3>Chase Blakeley</h3>
                         <div class="position">Chief Operations Officer (COO)</div>
                         <p>Chase manages project coordination, IP-NFT strategy, and community engagement. With 4+ years in high-tech business development at StoryBuilt and Oracle, he combines analytical rigor with operational excellence. Chase holds a B.S. in Economics from Southern Methodist University and is passionate about advancing decentralized biotech innovation.</p>
