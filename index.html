@@ -225,11 +225,28 @@
             color: var(--secondary);
         }
         
-        /* Team section */
+        /* Team section - UPDATED FOR V-FORMATION */
         .team-members {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto;
             gap: 2rem;
+        }
+
+        .team-member:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .team-member:nth-child(2) {
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        .team-member:nth-child(3) {
+            grid-column: 2;
+            grid-row: 2;
+            justify-self: center;
         }
         
         .team-member {
@@ -321,7 +338,19 @@
                 text-align: center;
             }
             
-            .team-members, .tech-features {
+            .team-members {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            
+            .team-member:nth-child(1),
+            .team-member:nth-child(2),
+            .team-member:nth-child(3) {
+                grid-column: 1;
+                grid-row: auto;
+            }
+            
+            .tech-features {
                 grid-template-columns: 1fr;
             }
             
@@ -478,9 +507,8 @@
         </section>
     </main>
     
-          <footer id="contact">
+    <footer id="contact">
         <div class="container">
-            <!-- Added logo container with doubled size -->
             <div style="text-align: center; margin-bottom: 2rem;">
                 <img src="pictures/glogo.jpeg" alt="Go-CAR T Logo" style="max-width: 600px; width: 100%; height: auto;">
             </div>
