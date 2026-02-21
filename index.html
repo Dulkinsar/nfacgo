@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GoCART | Logic-Gated CAR-T Therapies</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #5b3b6e;
-      --accent: #f0b429;
-      --dark: #1f1f1f;
-      --muted: #6b6b6b;
-      --bg: #ffffff;
+      --plum-950: #130d19;
+      --plum-900: #1e1428;
+      --plum-800: #342046;
+      --plum-700: #5b3b6e;
+      --gold-500: #f0b429;
+      --mist-100: #f8f6fb;
+      --mist-300: #d8d1e0;
+      --ink-900: #100d14;
+      --ink-700: #463f4f;
+      --line: rgba(240, 180, 41, 0.25);
+      --max: 1200px;
     }
 
     * {
@@ -24,231 +28,666 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      color: var(--dark);
-      background: var(--bg);
+      font-family: "Manrope", sans-serif;
+      background: radial-gradient(circle at 12% 0%, rgba(240, 180, 41, 0.2), transparent 30%), var(--plum-950);
+      color: var(--mist-100);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    header {
-      padding: 4rem 2rem;
-      border-bottom: 1px solid #eee;
+    .progress-wrap {
+      position: fixed;
+      right: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 38vh;
+      background: rgba(216, 209, 224, 0.25);
+      border-radius: 99px;
+      z-index: 100;
     }
 
-    .container {
-      max-width: 1100px;
+    .progress-bar {
+      width: 100%;
+      height: 0;
+      border-radius: 99px;
+      background: linear-gradient(to bottom, var(--gold-500), #ffd47b);
+      transition: height 0.2s ease;
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(19, 13, 25, 0.7);
+      border-bottom: 1px solid rgba(216, 209, 224, 0.18);
+      z-index: 90;
+    }
+
+    .top-nav-inner {
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.1rem;
+    }
+
+    .brand {
+      font-family: "Syne", sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--mist-100);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--mist-300);
+      text-decoration: none;
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--gold-500);
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      min-height: 94vh;
+      display: grid;
+      align-items: center;
+      padding: 6rem 0 5rem;
+      border-bottom: 1px solid rgba(216, 209, 224, 0.14);
+    }
+
+    .eyebrow {
+      color: var(--gold-500);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Syne", sans-serif;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
     }
 
     h1 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 1rem;
+      font-size: clamp(2.25rem, 7.5vw, 5.6rem);
+      max-width: 14ch;
+      margin-bottom: 1.4rem;
     }
 
     h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--primary);
+      font-size: clamp(1.9rem, 5vw, 4rem);
+      max-width: 15ch;
       margin-bottom: 1rem;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
     }
 
     p {
-      margin-bottom: 1rem;
-      color: var(--dark);
+      max-width: 62ch;
+      color: var(--mist-300);
     }
 
-    .subtle {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    nav {
-      border-bottom: 1px solid #eee;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      padding: 1rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-    }
-
-    section {
-      padding: 4rem 0;
-    }
-
-    .grid {
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 7rem;
+      padding-bottom: 4rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 6% -8% auto auto;
+      width: min(720px, 72vw);
+      height: min(640px, 62vw);
+      background: radial-gradient(circle, rgba(91, 59, 110, 0.7), transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.3rem;
+      align-items: end;
+    }
+
+    .hero-logo {
+      background: linear-gradient(145deg, rgba(52, 32, 70, 0.7), rgba(19, 13, 25, 0.7));
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      padding: 1.1rem;
+      justify-self: end;
+      max-width: 370px;
+      width: 100%;
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      border-radius: 0.7rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 0.9rem;
+      margin-top: 1.7rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.7rem 1rem;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--gold-500);
+      color: var(--ink-900);
+      font-weight: 700;
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(216, 209, 224, 0.5);
+      color: var(--mist-100);
+    }
+
+    .scroll-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 2.8rem;
+      color: rgba(216, 209, 224, 0.85);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .scroll-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold-500);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.8); opacity: 0.35; }
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
+      align-items: start;
+    }
+
+    .story-copy {
+      position: sticky;
+      top: 7.2rem;
+      align-self: start;
+      padding-right: 0.5rem;
+    }
+
+    .story-cards {
+      display: grid;
+      gap: 1rem;
     }
 
     .card {
-      border: 1px solid #eee;
-      padding: 1.5rem;
+      background: linear-gradient(180deg, rgba(52, 32, 70, 0.5), rgba(30, 20, 40, 0.5));
+      border: 1px solid rgba(216, 209, 224, 0.22);
+      border-left: 3px solid var(--gold-500);
+      border-radius: 1rem;
+      padding: 1.25rem;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    .card h3 {
+      font-size: 1.17rem;
+      margin-bottom: 0.45rem;
+      color: var(--mist-100);
     }
 
-    li {
-      margin-bottom: 0.6rem;
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.25rem;
+    }
+
+    .metric {
+      border: 1px solid rgba(216, 209, 224, 0.2);
+      border-radius: 0.9rem;
+      padding: 0.95rem;
+      background: rgba(19, 13, 25, 0.45);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--gold-500);
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.35rem, 3.3vw, 2.2rem);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .team-card {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(216, 209, 224, 0.23);
+      background: rgba(30, 20, 40, 0.55);
+    }
+
+    .team-card img {
+      width: 100%;
+      aspect-ratio: 4/4.6;
+      object-fit: cover;
+      display: block;
+    }
+
+    .team-copy {
+      padding: 0.9rem 0.95rem 1rem;
+    }
+
+    .team-copy h3 {
+      font-size: 1rem;
+    }
+
+    .team-copy p {
+      font-size: 0.87rem;
+      color: var(--mist-300);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.3rem;
+    }
+
+    .stage {
+      border: 1px solid rgba(216, 209, 224, 0.22);
+      border-radius: 0.9rem;
+      background: linear-gradient(180deg, rgba(52, 32, 70, 0.45), rgba(19, 13, 25, 0.45));
+      padding: 1rem;
+    }
+
+    .stage strong {
+      color: var(--gold-500);
+      display: inline-block;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
     }
 
     footer {
-      border-top: 1px solid #eee;
-      padding: 3rem 2rem;
+      padding: 2.8rem 1.5rem 3.4rem;
       text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
+      color: var(--mist-300);
+      border-top: 1px solid rgba(216, 209, 224, 0.18);
+      background: rgba(19, 13, 25, 0.8);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-logo {
+        justify-self: start;
+      }
+
+      .story-copy {
+        position: static;
+      }
+
+      .metrics,
+      .team-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .progress-wrap {
+        display: none;
+      }
+
+      .top-nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 0.7rem;
+      }
     }
   </style>
 </head>
-
 <body>
-
-<header>
-  <div class="container">
-    <h1>GoCART</h1>
-    <p class="subtle">
-      Logic-gated CAR-T cell therapies designed to enable safe targeting beyond blood cancers.
-    </p>
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="scroll-progress"></div>
   </div>
-</header>
 
-<nav>
-  <ul>
-    <li><a href="#problem">Problem</a></li>
-    <li><a href="#solution">Technology</a></li>
-    <li><a href="#desci">DeSci Model</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-  </ul>
-</nav>
-
-<main class="container">
-
-<section id="problem">
-  <h2>The Problem</h2>
-  <p>
-    Approximately 70% of cancers are not addressable with current targeted therapies.
-    While CAR-T therapies have transformed hematological oncology, their application to
-    solid tumors is limited by the absence of tumor-exclusive antigens.
-  </p>
-  <p>
-    Single-antigen CAR-T designs activate in the presence of low-level antigen expression
-    on healthy tissue, leading to off-tumor toxicity and an industry-wide development bottleneck.
-  </p>
-</section>
-
-<section id="solution">
-  <h2>GoCART Recognition Dimer Platform</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>True AND-Gate Logic</h3>
-      <p>
-        GoCART employs a recognition dimer architecture that requires simultaneous engagement
-        of two antigens on the same cell to trigger T-cell activation.
-      </p>
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a class="brand" href="#hero">GoCART</a>
+      <ul class="nav-links">
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#platform">Platform</a></li>
+        <li><a href="#desci">Model</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+      </ul>
     </div>
-    <div class="card">
-      <h3>High Sensitivity Without Compromise</h3>
-      <p>
-        Unlike existing Boolean CAR designs, the platform preserves high-affinity binding
-        while enforcing strict spatial coincidence, enabling physiological antigen detection.
-      </p>
+  </nav>
+
+  <header class="hero wrap" id="hero">
+    <div class="hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">Logic-Gated Cell Therapy Infrastructure</p>
+        <h1>Making solid tumors programmable targets.</h1>
+        <p>
+          GoCART builds recognition dimer CAR-T systems that only trigger when two antigens co-exist on the same cell, reducing off-tumor risk and opening a path beyond blood cancers.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#platform">See the Platform</a>
+          <a class="btn btn-ghost" href="#roadmap">View Timeline</a>
+        </div>
+        <div class="scroll-cue">
+          <span class="scroll-dot"></span>
+          Scroll for the full story
+        </div>
+      </div>
+      <figure class="hero-logo reveal">
+        <img src="pictures/glogo.jpeg" alt="GoCART logo and brand mark">
+      </figure>
     </div>
-    <div class="card">
-      <h3>Modular and Scalable</h3>
-      <p>
-        Binder modules are tunable and interchangeable, allowing rapid extension to new
-        antigen pairs and disease indications.
-      </p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section id="desci">
-  <h2>Decentralized Science Model</h2>
-  <p>
-    GoCART integrates a token-governed research structure using legally binding Sponsored
-    Research Agreements to coordinate funding, IP ownership, and community participation.
-  </p>
-  <ul>
-    <li>Token-based governance of intellectual property</li>
-    <li>Transparent allocation of research capital</li>
-    <li>Open collaboration on non-sensitive scientific outputs</li>
-  </ul>
-</section>
+  <main>
+    <section class="section wrap" id="problem">
+      <div class="story">
+        <div class="story-copy reveal">
+          <p class="eyebrow">Why Now</p>
+          <h2>Most tumors still have no safe targeting logic.</h2>
+          <p>
+            Roughly 70% of cancers are out of reach for current targeted therapies. Single-antigen CAR-T designs can activate on healthy tissue with low-level antigen expression, creating a hard safety ceiling.
+          </p>
+          <div class="metrics">
+            <article class="metric">
+              <strong>70%</strong>
+              <p>Cancers not addressable with current targeted approaches.</p>
+            </article>
+            <article class="metric">
+              <strong>2</strong>
+              <p>Antigen requirements before therapeutic activation.</p>
+            </article>
+            <article class="metric">
+              <strong>1</strong>
+              <p>Goal: one scalable logic framework across indications.</p>
+            </article>
+          </div>
+        </div>
+        <div class="story-cards">
+          <article class="card reveal">
+            <h3>Current Constraint</h3>
+            <p>
+              Conventional CAR-T is transformative in hematological oncology but constrained in solid tumors where tumor-exclusive antigens are rare.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Failure Mode</h3>
+            <p>
+              Single-input activation can trigger at physiologic antigen levels outside tumor tissue, increasing off-tumor toxicity risk.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Strategic Need</h3>
+            <p>
+              The field needs high sensitivity and strict combinatorial specificity at the same time, not as a trade-off.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="team">
-  <h2>Leadership</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Henry Erdlei, MD</h3>
-      <p class="subtle">Chief Executive Officer</p>
-      <p>
-        Background in translational tumor immunology with medical training at Charité
-        and doctoral research at the Max Delbrück Center.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Arailym Myrzagaliyeva</h3>
-      <p class="subtle">Chief Technology Officer</p>
-      <p>
-        Experience in synthetic biology, molecular biotechnology, and global health
-        initiatives, including leadership roles in academic-industry partnerships.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Chase Blakeley</h3>
-      <p class="subtle">Chief Operating Officer</p>
-      <p>
-        Oversees operational execution, funding strategy, and partnerships with prior
-        experience at Oracle and Tesla.
-      </p>
-    </div>
-  </div>
-</section>
+    <section class="section wrap" id="platform">
+      <div class="story">
+        <div class="story-copy reveal">
+          <p class="eyebrow">Recognition Dimer Platform</p>
+          <h2>True AND-gate logic with clinical-grade sensitivity.</h2>
+          <p>
+            GoCART's architecture requires simultaneous engagement of two tumor antigens before full activation, preserving binding strength while enforcing spatial coincidence.
+          </p>
+        </div>
+        <div class="story-cards">
+          <article class="card reveal">
+            <h3>AND Logic, Not Approximation</h3>
+            <p>
+              Activation is gated by dual-antigen recognition on the same cell, minimizing activity from isolated low-level expression.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Modular Binder Stack</h3>
+            <p>
+              Interchangeable binder modules accelerate extension to new antigen pairs and future disease programs.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Scale-Oriented Design</h3>
+            <p>
+              Platformized logic simplifies translation from discovery to preclinical testing and downstream manufacturing.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="roadmap">
-  <h2>Development Roadmap</h2>
-  <ul>
-    <li><strong>2025:</strong> In-vitro proof-of-concept and binder validation</li>
-    <li><strong>2026:</strong> In-vivo preclinical studies and patent filings</li>
-    <li><strong>2027+:</strong> GMP manufacturing preparation and IND-enabling studies</li>
-  </ul>
-</section>
+    <section class="section wrap" id="desci">
+      <div class="story">
+        <div class="story-copy reveal">
+          <p class="eyebrow">DeSci Execution Model</p>
+          <h2>Capital, IP, and governance aligned by design.</h2>
+          <p>
+            Sponsored Research Agreements anchor legal enforceability while token-mediated governance increases transparency and community participation.
+          </p>
+        </div>
+        <div class="story-cards">
+          <article class="card reveal">
+            <h3>Token-Governed IP Strategy</h3>
+            <p>
+              Stakeholders coordinate on governance decisions while preserving legal control over intellectual property execution.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Transparent Capital Allocation</h3>
+            <p>
+              Funding pathways and milestone progression remain auditable across participating research partners.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Open Scientific Collaboration</h3>
+            <p>
+              Non-sensitive outputs can be shared early to increase feedback velocity and expand contributor networks.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <section class="section wrap" id="team">
+      <div class="reveal">
+        <p class="eyebrow">Leadership</p>
+        <h2>Operators across translational science, platform engineering, and scale-up.</h2>
+      </div>
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <img src="pictures/henry.JPG" alt="Henry Erdlei">
+          <div class="team-copy">
+            <h3>Henry Erdlei, MD</h3>
+            <p>Chief Executive Officer</p>
+            <p>Translational tumor immunology, Charite training, and Max Delbruck Center research leadership.</p>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <img src="pictures/aray.JPG" alt="Arailym Myrzagaliyeva">
+          <div class="team-copy">
+            <h3>Arailym Myrzagaliyeva</h3>
+            <p>Chief Technology Officer</p>
+            <p>Synthetic biology and molecular biotechnology across academic-industry translational programs.</p>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <img src="pictures/chase.JPG" alt="Chase Blakeley">
+          <div class="team-copy">
+            <h3>Chase Blakeley</h3>
+            <p>Chief Operating Officer</p>
+            <p>Operational execution, fundraising strategy, and strategic partnerships from Oracle and Tesla experience.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-<footer>
-  <p>
-    GoCART is developing next-generation CAR-T platforms for applications beyond blood cancers.
-  </p>
-  <p>
-    Contact: henry.erdlei@charite.de
-  </p>
-</footer>
+    <section class="section wrap" id="roadmap">
+      <div class="reveal">
+        <p class="eyebrow">Roadmap</p>
+        <h2>From proof to preclinical scale.</h2>
+        <div class="timeline">
+          <article class="stage">
+            <strong>2025</strong>
+            <p>In-vitro proof-of-concept and binder validation.</p>
+          </article>
+          <article class="stage">
+            <strong>2026</strong>
+            <p>In-vivo preclinical studies and patent filings.</p>
+          </article>
+          <article class="stage">
+            <strong>2027+</strong>
+            <p>GMP manufacturing preparation and IND-enabling studies.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <p>GoCART is developing next-generation CAR-T platforms for applications beyond blood cancers.</p>
+    <p>Contact: henry.erdlei@charite.de</p>
+  </footer>
+
+  <script>
+    const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    const sections = Array.from(document.querySelectorAll("main section, header.hero"));
+    const reveals = document.querySelectorAll(".reveal");
+    const progress = document.getElementById("scroll-progress");
+
+    const setActive = (id) => {
+      navLinks.forEach((a) => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+      });
+    };
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    reveals.forEach((item) => revealObserver.observe(item));
+
+    const updateProgress = () => {
+      const scrolled = window.scrollY;
+      const max = document.body.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (scrolled / max) * 100 : 0;
+      progress.style.height = pct + "%";
+    };
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+  </script>
 </body>
 </html>
