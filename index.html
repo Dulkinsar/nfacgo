@@ -298,10 +298,15 @@
 
     .metrics {
       display: grid;
-      grid-template-columns: minmax(0, 0.72fr) minmax(0, 0.72fr) minmax(0, 1.7fr);
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.45fr);
       gap: 0.8rem;
       margin-top: 1.25rem;
       align-items: start;
+    }
+
+    .metrics-stack {
+      display: grid;
+      gap: 0.8rem;
     }
 
     .metric {
@@ -340,53 +345,19 @@
     }
 
     .metric--feature {
-      display: grid;
-      grid-template-columns: minmax(160px, 0.9fr) minmax(0, 1.45fr);
-      gap: 1rem;
-      padding: 1rem;
+      display: block;
+      padding: 1.1rem 1.2rem;
       background:
         linear-gradient(180deg, rgba(43, 26, 57, 0.92), rgba(22, 15, 30, 0.9)),
         rgba(19, 13, 25, 0.45);
     }
 
-    .feature-labels {
-      display: grid;
-      gap: 0.7rem;
-      align-content: start;
-    }
-
-    .feature-chip {
-      padding: 0.8rem 1rem;
-      border: 1px solid rgba(216, 209, 224, 0.18);
-      background: linear-gradient(135deg, rgba(87, 56, 107, 0.48), rgba(27, 18, 37, 0.82));
-      clip-path: polygon(11% 0, 100% 0, 89% 100%, 0 100%);
-    }
-
-    .feature-chip span {
-      display: block;
-      margin-bottom: 0.35rem;
-      font-size: 0.64rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(216, 209, 224, 0.74);
-    }
-
-    .feature-chip strong {
-      display: block;
-      color: var(--gold-500);
-      font-family: "Syne", sans-serif;
-      font-size: clamp(1.2rem, 2.4vw, 1.85rem);
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-    }
-
-    .feature-chip--logic {
-      background: linear-gradient(135deg, rgba(53, 88, 89, 0.32), rgba(24, 20, 34, 0.86));
+    .metric.metric--feature {
+      margin-top: 0;
     }
 
     .feature-copy {
       display: grid;
-      align-content: start;
       gap: 0.5rem;
     }
 
@@ -584,9 +555,10 @@
         grid-template-columns: 1fr;
       }
 
-      .metric--feature {
+      .metrics-stack {
         grid-template-columns: 1fr;
       }
+
     }
 
     @media (max-width: 720px) {
@@ -657,28 +629,20 @@
             The challenge lies in identifying binders that can be deployed safely. The most effective antigen targets prove lethal when engaged through single-input logic. GoCART is built to safely unlock that undruggable antigen layer in MM and AML.
           </p>
           <div class="metrics">
-            <article class="metric metric--compact">
-              <strong>MM</strong>
-              <p>Initial focus with a path to safer high-affinity targeting.</p>
-            </article>
-            <article class="metric metric--compact">
-              <strong>AML</strong>
-              <p>Priority indication where target overlap creates a severe toxicity constraint.</p>
-            </article>
+            <div class="metrics-stack">
+              <article class="metric metric--compact">
+                <strong>MM</strong>
+                <p>Initial focus with a path to safer high-affinity targeting.</p>
+              </article>
+              <article class="metric metric--compact">
+                <strong>AML</strong>
+                <p>Priority indication where target overlap creates a severe toxicity constraint.</p>
+              </article>
+            </div>
             <article class="metric metric--feature">
-              <div class="feature-labels" aria-hidden="true">
-                <div class="feature-chip">
-                  <span>Target</span>
-                  <strong>CD56</strong>
-                </div>
-                <div class="feature-chip feature-chip--logic">
-                  <span>Control</span>
-                  <strong>Gated Logic</strong>
-                </div>
-              </div>
               <div class="feature-copy">
-                <strong class="metric-title">AND-Targeting</strong>
-                <p>Conventional single-input CAR-T approaches cannot safely engage CD56 because systemic expression creates severe toxicity risk. GoCART unlocks CD56 through combinatorial AND-gate logic, pairing it with CD33 in AML and with CD38 in Multiple Myeloma. By requiring simultaneous engagement of CD56 and a secondary tumor-associated antigen, our architecture converts a powerful but unsafe single-input target into a precision-controlled therapeutic entry point.</p>
+                <strong class="metric-title">CD56 AND-Gated Targeting</strong>
+                <p>Conventional single-input CAR-T therapies cannot safely target CD56 due to systemic expression and severe toxicity risk. GoCART unlocks CD56 through combinatorial AND-gate logic, pairing it with CD33 in AML and CD38 in Multiple Myeloma. By requiring dual-antigen engagement, our platform transforms a powerful but unsafe target into a precision-controlled therapeutic entry point.</p>
               </div>
             </article>
           </div>
