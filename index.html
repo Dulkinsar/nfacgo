@@ -375,6 +375,53 @@
       letter-spacing: 0.05em;
     }
 
+    .faq-section {
+      min-height: auto;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1.4rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(216, 209, 224, 0.18);
+      padding-bottom: 0.15rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-question {
+      display: block;
+      width: 100%;
+      color: var(--mist-100);
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      line-height: 1.2;
+      padding: 0.85rem 0;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: var(--mist-300);
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.25s ease, padding 0.25s ease;
+      padding-right: 2rem;
+    }
+
+    .faq-item:hover .faq-answer,
+    .faq-item:focus-within .faq-answer {
+      max-height: 16rem;
+      opacity: 1;
+      transform: translateY(0);
+      padding-bottom: 0.95rem;
+    }
+
     footer {
       padding: 2.8rem 1.5rem 3.4rem;
       text-align: center;
@@ -483,6 +530,7 @@
         <li><a href="#model">Model</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
   </nav>
@@ -493,7 +541,7 @@
         <p class="eyebrow">Logic-Gated infrastructure for adoptive immunotherapy</p>
         <h1>Unlocking the Undruggable Antigen Landscape.</h1>
         <p>
-          GoCART builds recognition dimer CAR T cells  for cancers that activate only when two antigens co-exist on the same cell, reducing off-target toxicity and making high-affinity binders against targets such as CD33 and CD38 clinically usable.
+          GoCART builds recognition dimer CAR T cells  for cancers that activate only when two antigens co-exist on the same cell, reducing off-target toxicity and making high-affinity binders against targets such as CD56 and CD38 clinically usable.
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#platform">See the Platform</a>
@@ -517,7 +565,7 @@
           <p class="eyebrow">Why Now</p>
           <h2>A lot of critical antigens are still unusable.</h2>
           <p>
-            The challenge lies in identifying binders that can be deployed safely. The most effective antigen targets prove lethal when engaged through single-input logic. GoCART is built to safely unlock that undruggable antigen layer.
+            The challenge lies in identifying binders that can be deployed safely. The most effective antigen targets prove lethal when engaged through single-input logic. GoCART is built to safely unlock that undruggable antigen layer in MM and AML.
           </p>
           <div class="metrics">
             <article class="metric">
@@ -529,8 +577,8 @@
               <p>Priority indication where target overlap creates a severe toxicity constraint.</p>
             </article>
             <article class="metric">
-              <strong>CD38, CD33</strong>
-           <p>Representative antigens that become actionable with combinatorial gating, with CD38 as a target antigen in myeloma and CD33 as a target antigen in AML.</p>
+              <strong>CD56 / CD38, CD33</strong>
+              <p>Representative antigens that become actionable with combinatorial gating, with CD38 as a target antigen in myeloma and CD33 as a target antigen in AML.</p>
             </article>
           </div>
         </div>
@@ -538,7 +586,7 @@
           <article class="card reveal">
             <h3>Current Constraint</h3>
             <p>
-              Conventional CAR T cells work best when one clean antigen exists. Targets overlap with healthy tissue and become unusable at therapeutic affinity.
+              Conventional CAR T cells work best when one clean antigen exists. In MM and AML, targets overlap with healthy tissue and become unusable at therapeutic affinity.
             </p>
           </article>
           <article class="card reveal">
@@ -664,6 +712,51 @@
           <article class="stage">
             <strong>2033</strong>
             <p>First regulatory approval target following successful Phase I/II readouts and BLA submission, with the goal of establishing the ABC Trimer as the new standard for safe, high-precision cell therapy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap faq-section" id="faq">
+      <div class="reveal">
+        <p class="eyebrow">Strategic &amp; Technical FAQ</p>
+        <h2>Key diligence questions, expanded on hover.</h2>
+        <div class="faq-list">
+          <article class="faq-item" tabindex="0">
+            <span class="faq-question">Why lead with Multiple Myeloma (MM) in a "crowded" market?</span>
+            <p class="faq-answer">
+              Incumbents rely heavily on BCMA, which remains exposed to downregulation and immune escape. GoCART targets CD56 and CD38 to create a more durable entry point in MM, while keeping the same platform transferable to AML.
+            </p>
+          </article>
+          <article class="faq-item" tabindex="0">
+            <span class="faq-question">How does GoCART's toxicity management differ from current solutions without an "AND" gate?</span>
+            <p class="faq-answer">
+              Standard approaches often reduce binder affinity to keep healthy tissue activation at bearable levels, which weakens potency. Our extracellular logic gate preserves high-affinity binders while enforcing activation only when both antigens are present on the same cell.
+            </p>
+          </article>
+          <article class="faq-item" tabindex="0">
+            <span class="faq-question">How does adding a soluble binder layer affect the development timeline?</span>
+            <p class="faq-answer">
+              The complexity is offset by existing infrastructure. The lab already runs vector design, CAR expression, and functional testing for related systems, so the FACS-FRET assay is the main new experimental layer rather than a full rebuild of the workflow.
+            </p>
+          </article>
+          <article class="faq-item" tabindex="0">
+            <span class="faq-question">What is the manufacturing strategy for clinical scale?</span>
+            <p class="faq-answer">
+              GoCART is being built as an asset-light organization. We use established production partners for lentiviral vector manufacturing and outsource antibody-domain design and testing to specialized partners, which reduces early capex while preserving flexibility across new combinations.
+            </p>
+          </article>
+          <article class="faq-item" tabindex="0">
+            <span class="faq-question">Is $150k sufficient to reach a critical milestone?</span>
+            <p class="faq-answer">
+              Yes. The $150k Seed Round is scoped to hit a defined inflection point: in-vitro proof of concept, completion of the in-silico pipeline, validation of the binder-binder interface, and initial patent filings that de-risk the next institutional raise.
+            </p>
+          </article>
+          <article class="faq-item" tabindex="0">
+            <span class="faq-question">What is the primary competitive moat?</span>
+            <p class="faq-answer">
+              Most competitors are optimizing binders for the same narrow set of targets. GoCART is building the logic-gated operating system that makes undruggable antigens usable, positioning the platform as enabling infrastructure rather than a single-asset bet.
+            </p>
           </article>
         </div>
       </div>
