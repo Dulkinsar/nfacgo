@@ -277,19 +277,20 @@
       padding-right: 0.5rem;
     }
 
-    .story-figure {
-      margin: 1.5rem 0 0;
-    }
-
-    .story-figure img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
     .story-cards {
       display: grid;
       gap: 1rem;
+    }
+
+    #platform .story-copy,
+    #platform .story-media,
+    #platform .story-cards {
+      grid-column: 1 / -1;
+    }
+
+    #platform .story-copy {
+      position: static;
+      padding-right: 0;
     }
 
     .story-citation {
@@ -714,9 +715,9 @@
           <p>
             GoCART's architecture requires simultaneous engagement of two antigens before activation, preserving high-affinity binding while enforcing spatial coincidence and reducing systemic toxicity.
           </p>
-          <figure class="story-figure">
-            <img src="pictures/bigpic.svg" alt="GoCART recognition dimer platform diagram">
-          </figure>
+        </div>
+        <div class="story-media">
+          <img src="pictures/bigpic.svg" alt="GoCART recognition dimer platform diagram">
         </div>
         <div class="story-cards">
           <article class="card reveal">
